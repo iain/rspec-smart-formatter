@@ -29,6 +29,10 @@ step "I should see the documentation output" do
   @stdout.should include("the description of the specs")
 end
 
+step "I should see the progress output" do
+  @stdout.should include("................")
+end
+
 placeholder :count do
   match /\d+/ do |count|
     count.to_i
