@@ -1,0 +1,3 @@
+--color
+--format RSpec::Smart::Formatter
+-r turnip
