@@ -8,6 +8,7 @@ module RSpec
 
       def initialize(*args)
         @initialize_args = args
+        @example_count = 0
       end
 
       def start(example_count)
