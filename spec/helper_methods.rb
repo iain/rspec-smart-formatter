@@ -25,7 +25,7 @@ module HelperMethods
   def create_gemfile(*gems)
     create_file "Gemfile" do |f|
       f.puts "source :rubygems"
-      f.puts "gem 'rspec'"
+      f.puts "gem 'rspec', :require => false"
       f.puts "gem 'rspec-smart-formatter', :require => false, :path => '#{PROJECT_DIR}'"
       gems.each do |gem|
         f.puts "gem '#{gem}', :require => false"

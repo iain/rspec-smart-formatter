@@ -5,6 +5,10 @@ Feature: Smart Formatter
   So it will choose the best possible formatter for me.
 
   Background:
+
+    To install the smart formatter, add it to your Gemfile
+    and add it to your '.rspec' file.
+
     Given I have installed the smart formatter
 
 
@@ -21,7 +25,8 @@ Feature: Smart Formatter
   Scenario: Running a lot of specs
 
     Wit a lot of specs, you'd want a shorter output.
-    Since we cannot be sure you have something fancy like Fuubar installed, it will use progress
+    Since we cannot be sure you have something fancy like Fuubar installed,
+    it will use the progress formatter.
 
     Given I don't have any special formatters installed
     When I run a lot of specs

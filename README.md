@@ -3,6 +3,7 @@
 RSpec Smart Formatter automatically chooses an appropriate formatter depending on the amount of
 specs you're running.
 
+
 ## Why this formatter exists
 
 This gem is for scratching an itch I have. When I run focussed tests (like, only one file, or only
@@ -19,7 +20,8 @@ what went wrong without having to wait for your whole suite to finish.
 
 I could write `-fd` and `-fp` manually, but I keep forgetting that.
 
-## Usage
+
+## Installation
 
 Add to your gemfile:
 
@@ -40,9 +42,27 @@ Add it your `.rspec` file:
 
 And you're done!
 
+## Usage
+
+[See this feature](https://github.com/iain/rspec-smart-formatter/blob/master/spec/smart-formatter.feature)
+
+
+
 ## Configuration
 
 Don't know yet. Still working on it.
+
+
+## Development
+
+To run the specs of rspec-smart-formatter itself:
+
+```
+bundle install
+rspec
+```
+
+Pull requests are welcome.
 
 
 ## Copyright
