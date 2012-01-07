@@ -1,28 +1,25 @@
 step "I have installed the smart formatter" do
-  FileUtils.mkdir_p "spec"
-  File.open(".rspec", "w") do |f|
-    f << "--format RSpec::Smart::Formatter\n"
-    f << "-I #{File.expand_path('../../lib')}\n"
+  create_file '.rspec' do |f|
+    f.puts "--format RSpec::Smart::Formatter"
   end
 end
 
-step "I run :count specs" do |count|
-  File.open("spec/sample_spec.rb", "w") do |f|
-    f << "describe 'something' do"
-    count.times do |i|
-      f << "  it 'the description of the specs' do;  end\n\n"
-    end
-    f << "end"
-  end
-  @stdout = ""
-  @stderr = ""
-  Open3.popen3("rspec") do |stdin, stdout, stderr, thr|
-    @stdout << stdout.read
-    @stderr << stderr.read
-  end
-  if @stderr != ""
-    puts @stderr
-  end
+step "I don't have any special formatters installed" do
+  create_gemfile
+end
+
+step "I have installed Fuubar" do
+  create_gemfile 'fuubar'
+end
+
+step "I run only a couple of specs" do
+  create_specs 20
+  run_specs
+end
+
+step "I run a lot of specs" do
+  create_specs 21
+  run_specs
 end
 
 step "I should see the documentation output" do
@@ -31,14 +28,6 @@ end
 
 step "I should see the progress output" do
   @stdout.should include("................")
-end
-
-step "I don't have any special formatters installed" do
-  `gem uninstall fuubar`
-end
-
-step "I have installed Fuubar" do
-  `gem install fuubar`
 end
 
 step 'I should see the Fuubar output' do

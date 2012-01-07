@@ -15,7 +15,7 @@ Feature: Smart Formatter
     It allowes you to see in relation to other specs, which specs failed.
     I'm guessing about 20 specs is the maximum for documentation to be readable.
 
-    When I run 20 specs
+    When I run only a couple of specs
     Then I should see the documentation output
 
   Scenario: Running a lot of specs
@@ -24,7 +24,7 @@ Feature: Smart Formatter
     Since we cannot be sure you have something fancy like Fuubar installed, it will use progress
 
     Given I don't have any special formatters installed
-    When I run 100 specs
+    When I run a lot of specs
     Then I should see the progress output
 
 
@@ -33,5 +33,5 @@ Feature: Smart Formatter
     If you have Fuubar installed, this will be preferred over the progress formatter
 
     Given I have installed Fuubar
-    When I run 100 specs
+    When I run a lot of specs
     Then I should see the Fuubar output
