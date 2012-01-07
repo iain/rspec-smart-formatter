@@ -1,5 +1,7 @@
 # RSpec Smart Formatter
 
+[![Build Status](https://secure.travis-ci.org/iain/rspec-smart-formatter.png)](http://travis-ci.org/iain/rspec-smart-formatter)
+
 RSpec Smart Formatter automatically chooses an appropriate formatter depending on the amount of
 specs you're running.
 
