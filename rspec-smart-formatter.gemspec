@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "rspec-smart-formatter"
-  s.version     = '0.0.2'
+  s.version     = '0.0.3.beta'
   s.authors     = ["iain"]
   s.email       = ["iain@iain.nl"]
   s.homepage    = ""
