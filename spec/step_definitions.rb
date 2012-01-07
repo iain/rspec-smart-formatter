@@ -33,8 +33,14 @@ step "I should see the progress output" do
   @stdout.should include("................")
 end
 
-placeholder :count do
-  match /\d+/ do |count|
-    count.to_i
-  end
+step "I don't have any special formatters installed" do
+  `gem uninstall fuubar`
+end
+
+step "I have installed Fuubar" do
+  `gem install fuubar`
+end
+
+step 'I should see the Fuubar output' do
+  @stdout.should include("100% |=======")
 end

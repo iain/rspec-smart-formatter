@@ -23,6 +23,15 @@ Feature: Smart Formatter
     Wit a lot of specs, you'd want a shorter output.
     Since we cannot be sure you have something fancy like Fuubar installed, it will use progress
 
+    Given I don't have any special formatters installed
     When I run 100 specs
     Then I should see the progress output
 
+
+  Scenario: With Fuubar installed
+
+    If you have Fuubar installed, this will be preferred over the progress formatter
+
+    Given I have installed Fuubar
+    When I run 100 specs
+    Then I should see the Fuubar output

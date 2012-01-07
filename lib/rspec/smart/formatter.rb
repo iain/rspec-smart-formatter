@@ -20,12 +20,21 @@ module RSpec
         if @example_count <= 20
           documentation_formatter
         else
-          progress_formatter
+          formatter_for_more_specs
         end
       end
 
       def __setobj__(obj)
         raise NotImplementedError.new("The delegated object is calculated automatically, it is not to be set")
+      end
+
+      private
+
+      def formatter_for_more_specs
+        require 'fuubar'
+        fuubar_formatter
+      rescue LoadError
+        progress_formatter
       end
 
       def documentation_formatter
@@ -34,6 +43,10 @@ module RSpec
 
       def progress_formatter
         @progress_formatter ||= RSpec::Core::Formatters::ProgressFormatter.new(*@initialize_args)
+      end
+
+      def fuubar_formatter
+        @fuubar_formatter ||= Fuubar.new(*@initialize_args)
       end
 
     end
