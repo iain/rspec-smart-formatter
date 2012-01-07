@@ -44,7 +44,10 @@ And you're done!
 
 ## Usage
 
-[See this feature](https://github.com/iain/rspec-smart-formatter/blob/master/spec/smart-formatter.feature)
+Just run RSpec as [you normally would](https://www.relishapp.com/rspec/rspec-core/docs/command-line).
+
+For explaination on how the smart formatter works, [see this
+feature](https://github.com/iain/rspec-smart-formatter/blob/master/spec/smart-formatter.feature).
 
 
 
