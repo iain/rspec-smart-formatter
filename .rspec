@@ -1,3 +1,4 @@
 --color
+--order rand
 --format RSpec::Smart::Formatter
 -r turnip
