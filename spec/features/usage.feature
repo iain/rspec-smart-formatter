@@ -1,4 +1,4 @@
-Feature: Smart Formatter
+Feature: Usage
 
   Because I want to save time figuring out which tests have failed,
   I can specify to always use the smart formatter

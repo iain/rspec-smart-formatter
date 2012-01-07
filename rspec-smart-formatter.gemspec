@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '0.0.3.beta'
   s.authors     = ["iain"]
   s.email       = ["iain@iain.nl"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/iain/rspec-smart-formatter"
   s.summary     = %q{Automatically chooses a handy formatter}
   s.description = %q{When you run individual specs, I want to see documentation output, because it shows better which specs fails. But when I run all my specs I want something like progress or Fuubar.}
 
