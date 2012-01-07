@@ -10,28 +10,27 @@ module HelperMethods
     end
   end
 
+  def create_rspec_config
+    create_file '.rspec' do |f|
+      f.puts "--format RSpec::Smart::Formatter"
+      f.puts "-I #{File.join(PROJECT_DIR, 'lib')}"
+    end
+  end
+
   def run_specs
-    @stdout = ""
+    run_command "rspec"
+  end
+
+  def run_command(command)
+    @stdout ||= ""
     @stderr = ""
-    Open3.popen3("bundle exec rspec") do |stdin, stdout, stderr, thr|
+    Open3.popen3(command) do |stdin, stdout, stderr, thr|
       @stdout << stdout.read
       @stderr << stderr.read
     end
     if @stderr != ""
       puts @stderr
     end
-  end
-
-  def create_gemfile(*gems)
-    create_file "Gemfile" do |f|
-      f.puts "source :rubygems"
-      f.puts "gem 'rspec', :require => false"
-      f.puts "gem 'rspec-smart-formatter', :require => false, :path => '#{PROJECT_DIR}'"
-      gems.each do |gem|
-        f.puts "gem '#{gem}', :require => false"
-      end
-    end
-    `bundle check || bundle install`
   end
 
   def create_file(filename)

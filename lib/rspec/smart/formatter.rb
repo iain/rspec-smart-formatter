@@ -17,11 +17,11 @@ module RSpec
       end
 
       def __getobj__
-        @formatter_set || choose_formatter
+        choose_formatter
       end
 
       def __setobj__(obj)
-        @formatter_set = obj
+        raise "Nothing to set here"
       end
 
       private
@@ -39,25 +39,13 @@ module RSpec
       end
 
       def formatter_for_fewer_specs
-        documentation
-      end
-
-      def formatter_for_more_specs
-        fuubar || progress
-      end
-
-      def documentation
         formatter RSpec::Core::Formatters::DocumentationFormatter
       end
 
-      def fuubar
+      def formatter_for_more_specs
         require 'fuubar'
         formatter Fuubar
       rescue LoadError
-        nil
-      end
-
-      def progress
         formatter RSpec::Core::Formatters::ProgressFormatter
       end
 

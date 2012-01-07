@@ -1,15 +1,13 @@
 step "I have installed the smart formatter" do
-  create_file '.rspec' do |f|
-    f.puts "--format RSpec::Smart::Formatter"
-  end
+  create_rspec_config
 end
 
 step "I don't have any special formatters installed" do
-  create_gemfile
+  run_command "gem uninstall fuubar"
 end
 
 step "I have installed Fuubar" do
-  create_gemfile 'fuubar'
+  run_command "gem install fuubar"
 end
 
 step "I run only a couple of specs" do

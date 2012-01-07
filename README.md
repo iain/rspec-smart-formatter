@@ -65,6 +65,8 @@ bundle install
 rspec
 ```
 
+PS. Don't run with `bundle exec`.
+
 Pull requests are welcome.
 
 
