@@ -1,7 +1,8 @@
 require "bundler/gem_tasks"
 
 task :spec do
-  system "bundle exec rspec"
+  status = system "rspec"
+  exit status
 end
 
 task :default => :spec
