@@ -2,7 +2,7 @@
 
 ## 0.0.4 (unreleased)
 
-* ...
+* Speed improvement
 
 ## 0.0.3 (2012-01-07)
 

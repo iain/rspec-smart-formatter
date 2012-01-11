@@ -17,7 +17,7 @@ module RSpec
       end
 
       def __getobj__
-        choose_formatter
+        @chosen_formatter ||= choose_formatter
       end
 
       def __setobj__(obj)
@@ -50,11 +50,7 @@ module RSpec
       end
 
       def formatter(formatter)
-        formatters[formatter] ||= formatter.new(*@initialize_args)
-      end
-
-      def formatters
-        @formatters ||= {}
+        formatter.new(*@initialize_args)
       end
 
     end
